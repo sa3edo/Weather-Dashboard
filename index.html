@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style/all.min.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark  bg-dark py-5 z-3">
+        <div class="container">
+          <div>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+              <div class="logo-img w-25">
+                <img
+                  src="assets/Weather/imgi_1_logo@2x.png"
+                  width="100%"
+                  alt="logo"
+                />
+              </div>
+              <div class="logo-head ms-3">
+                <h1 class="fs-6">Weather</h1>
+                <small class="">tagline goes here</small>
+              </div>
+            </a>
+          </div>
+
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse flex-grow-0 navbar-collapse w-50"
+            id="collapsibleNavId"
+          >
+            <ul class="navbar-nav mt-2 mt-lg-0 w-100 align-items-center justify-content-between">
+              <li class="nav-item home-link ">
+                <a class="nav-link  active" href="#" aria-current="page"
+                  >Home <span class="visually-hidden">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">live cameras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="hero d-flex align-items-center">
+        <div class="container">
+          <div class="search">
+            <form class="d-flex my-2 my-lg-0 p-5 position-relative">
+              <input
+                class="form-control me-sm-2 px-3 py-4 rounded-pill bg-dark border-dark text-light custome-placeholder"
+                type="text"
+                placeholder="Search"
+                id="search"
+              />
+              <input
+                class="custome-search-btn btn btn-info py-md-3 my-sm-0 rounded-pill position-absolute px-5 top-50"
+                type="submit"
+                id="search-btn"
+                value="Find"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container w-md-75 calendar py-3">
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-md-6 current">
+
+            </div>
+            <div class="row g-3 mt-0 col-md-6 forecasts">
+
+            </div>
+          
+            </div>
+          </div>
+        </div>
+
+    </main>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
