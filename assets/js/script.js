@@ -23,8 +23,11 @@ const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satur
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December",];
 
 var cuurentDay;
+const proxy = "https://api.allorigins.win/raw?url=";
 async function getData(tirm = 'cairo') {
-  let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=2cbc537d95fe4d9a935212523250507&q=${tirm}&days=5`);
+  let response = await fetch(proxy + encodeURIComponent(
+  `https://api.weatherapi.com/v1/forecast.json?key=...&q=${term}&days=5`
+);
   cuurentDay = await response.json();
   const forecastDays = cuurentDay.forecast.forecastday.slice(1) || [];
   console.log(forecastDays);
