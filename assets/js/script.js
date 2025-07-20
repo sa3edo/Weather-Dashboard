@@ -44,10 +44,8 @@ const months = [
 ];
 
 var cuurentDay;
-async function getData(tirm = "cairo") {
-  let response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=2cbc537d95fe4d9a935212523250507&q=${tirm}&days=5`
-  );
+async function getData(tirm = 'cairo') {
+  let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=2cbc537d95fe4d9a935212523250507&q=${tirm}&days=5`);
   cuurentDay = await response.json();
   const forecastDays = cuurentDay.forecast.forecastday.slice(1) || [];
   console.log(forecastDays);
