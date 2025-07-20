@@ -1,30 +1,53 @@
 var current = document.querySelector(".current");
 var forecasts = document.querySelector(".forecasts");
-var input = document.getElementById('search')
+var input = document.getElementById("search");
 const form = document.querySelector("form");
 console.log(input);
-var searchTirm
-input.addEventListener('input',function(e){
-console.log(e.target.value);
- searchTirm = e.target.value.trim();
-if(searchTirm !== '' && searchTirm.length > 1){
-getData(searchTirm);
-}
-})
+var searchTirm;
+input.addEventListener("input", function (e) {
+  console.log(e.target.value);
+  searchTirm = e.target.value.trim();
+  if (searchTirm !== "" && searchTirm.length > 1) {
+    getData(searchTirm);
+  }
+});
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); 
+  e.preventDefault();
   searchTirm = input.value.trim();
   if (searchTirm.length > 1) {
     getData(searchTirm);
   }
 });
 console.log(forecasts);
-const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
-const months = ["January","February","March","April","May","June","July","August","September","October","November","December",];
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 var cuurentDay;
-async function getData(tirm = 'cairo') {
-  let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=2cbc537d95fe4d9a935212523250507&q=${tirm}&days=5`);
+async function getData(tirm = "cairo") {
+  let response = await fetch(
+    `https://api.weatherapi.com/v1/forecast.json?key=2cbc537d95fe4d9a935212523250507&q=${tirm}&days=5`
+  );
   cuurentDay = await response.json();
   const forecastDays = cuurentDay.forecast.forecastday.slice(1) || [];
   console.log(forecastDays);
@@ -93,15 +116,14 @@ function displayCurrent(cuurentDay, dayName, dayNum, month) {
               </div>`;
 }
 function displayForecast(forecastDays) {
-
-  var cartoona = ''
+  var cartoona = "";
   forecastDays.forEach((day) => {
     const date = new Date(day.date);
     const dayName = days[date.getDay()];
     const month = months[date.getMonth()];
     const dayNum = date.getDate();
 
-    cartoona+= `
+    cartoona += `
                 <div class="col-md-6">
                 <div class="card">
                   <div class="card-body text-light">
@@ -125,6 +147,6 @@ function displayForecast(forecastDays) {
                 </div>
   `;
   });
-  forecasts.innerHTML=cartoona;
+  forecasts.innerHTML = cartoona;
 }
 getData();
